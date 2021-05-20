@@ -25,6 +25,7 @@ return [
     /** Auth **/
     ["path" => "/signup", "controller" => SimpleController::class, "http_method" => "POST", "controller_method" => "signup", "name" => "app.signup", 'parameters' => [$userRepository]],
     ["path" => "/login", "controller" => AuthController::class, "http_method" => "POST", "controller_method" => "login", "name" => "app.login", 'parameters' => [$userRepository]],
+    ["path" => "/disconnect", "controller" => AuthController::class, "http_method" => "GET", "controller_method" => "disconnect", "name" => "app.disconnect"],
 
     /** Connected  **/
 ];

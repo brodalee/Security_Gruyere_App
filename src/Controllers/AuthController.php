@@ -15,4 +15,10 @@ class AuthController extends AbstractController
     public function signup(DefaultRepository $userRepository)
     {
     }
+
+    public function disconnect()
+    {
+        $this->disconnectSession();
+        return $this->redirectTo('app.home');
+    }
 }
