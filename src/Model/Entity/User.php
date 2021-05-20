@@ -2,6 +2,7 @@
 
 namespace App\Model\Entity;
 
+use App\Model\Repository\UserRepository;
 use Core\Model\AbstractEntity;
 
 class User extends AbstractEntity
@@ -13,5 +14,6 @@ class User extends AbstractEntity
     public function __construct()
     {
         $this->tableName = "User";
+        $this->repositoryName = UserRepository::class;
     }
 }

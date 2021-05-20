@@ -11,7 +11,7 @@ class UserSession implements UserInterface
     private $role;
     private $pseudo;
 
-    public function __construct(User $user, string $role = 'USER')
+    public function __construct($user, string $role = 'USER')
     {
         $this->role = $role;
         $this->pseudo = $user->pseudo;

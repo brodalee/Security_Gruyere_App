@@ -27,7 +27,7 @@ return [
     ["path" => "/", "controller" => SimpleController::class, "http_method" => "GET", "controller_method" => "homePage", "name" => "app.home"],
 
     /** Auth **/
-    ["path" => "/auth/signup", "controller" => SimpleController::class, "http_method" => "POST", "controller_method" => "signup", "name" => "app.signup", 'parameters' => [$userRepository]],
+    ["path" => "/auth/signup", "controller" => AuthController::class, "http_method" => "POST", "controller_method" => "signup", "name" => "app.signup", 'parameters' => [$userRepository]],
     ["path" => "/auth/login", "controller" => AuthController::class, "http_method" => "POST", "controller_method" => "login", "name" => "app.login", 'parameters' => [$userRepository]],
     ["path" => "/auth/disconnect", "controller" => AuthController::class, "http_method" => "GET", "controller_method" => "disconnect", "name" => "app.disconnect"],
 
