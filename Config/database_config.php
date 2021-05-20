@@ -11,6 +11,6 @@ return [
     "type" => DBFactory::$MYSQL,
     "user_name" => "root",
     "password" => "",
-    "db_name" => "",
-    "host" => "localhost"
+    "db_name" => "gruyere_app",
+    "host" => "localhost:3306"
 ];

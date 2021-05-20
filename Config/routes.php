@@ -1,7 +1,5 @@
 <?php
 
-use App\Controllers\Toto;
-
 /**
  * Array of routes. Defined with struct :
  *      [
@@ -13,6 +11,9 @@ use App\Controllers\Toto;
  *          "parameters"            => [Objects, strings, int, etc..]
  *      ]
  */
+
+use App\Controllers\SimpleController;
+
 return [
-    ["path" => "/", "controller" => Toto::class, "http_method" => "GET", "controller_method" => "toto", "name" => "app.toto"]
+    ["path" => "/", "controller" => SimpleController::class, "http_method" => "GET", "controller_method" => "homePage", "name" => "app.home"]
 ];

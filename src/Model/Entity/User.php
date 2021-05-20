@@ -3,17 +3,17 @@
 namespace App\Model\Entity;
 
 use Core\Interfaces\UserInterface;
+use Core\Model\AbstractEntity;
 
-class User implements UserInterface
+class User extends AbstractEntity implements UserInterface
 {
-
-    private $id;
-    private $name;
+    public $id;
+    public $pseudo;
+    public $password;
 
     public function __construct()
     {
-        $this->id = 43;
-        $this->name = "airfbrz";
+        $this->tableName = "User";
     }
 
     public function getRole()

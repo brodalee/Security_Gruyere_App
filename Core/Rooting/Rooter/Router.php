@@ -65,7 +65,8 @@ class Router
 
             $params = array();
 
-            if (preg_match_all('/:([\w-%]+)/', $routes->getUrl(), $argument_keys)) {
+            // '/:([\w-%]+)/'
+            if (preg_match_all('/:([\w-]+)/', $routes->getUrl(), $argument_keys)) {
                 $argument_keys = $argument_keys[1];
 
                 // check arguments number
