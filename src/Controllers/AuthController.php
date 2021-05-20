@@ -10,10 +10,12 @@ class AuthController extends AbstractController
 
     public function login(DefaultRepository $userRepository)
     {
+        // POST['email']  POST['password']
     }
 
     public function signup(DefaultRepository $userRepository)
     {
+        // POST['email']  POST['password']
     }
 
     public function disconnect()

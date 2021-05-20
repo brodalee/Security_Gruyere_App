@@ -27,13 +27,15 @@ return [
     ["path" => "/", "controller" => SimpleController::class, "http_method" => "GET", "controller_method" => "homePage", "name" => "app.home"],
 
     /** Auth **/
-    ["path" => "/signup", "controller" => SimpleController::class, "http_method" => "POST", "controller_method" => "signup", "name" => "app.signup", 'parameters' => [$userRepository]],
-    ["path" => "/login", "controller" => AuthController::class, "http_method" => "POST", "controller_method" => "login", "name" => "app.login", 'parameters' => [$userRepository]],
-    ["path" => "/disconnect", "controller" => AuthController::class, "http_method" => "GET", "controller_method" => "disconnect", "name" => "app.disconnect"],
+    ["path" => "/auth/signup", "controller" => SimpleController::class, "http_method" => "POST", "controller_method" => "signup", "name" => "app.signup", 'parameters' => [$userRepository]],
+    ["path" => "/auth/login", "controller" => AuthController::class, "http_method" => "POST", "controller_method" => "login", "name" => "app.login", 'parameters' => [$userRepository]],
+    ["path" => "/auth/disconnect", "controller" => AuthController::class, "http_method" => "GET", "controller_method" => "disconnect", "name" => "app.disconnect"],
 
     /** Sauces  **/
     ["path" => "/sauces", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "getAll", "name" => "app.sauce.getAll", 'parameters' => [$sauceRepository]],
     ["path" => "/sauces/:id", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "getOneById", "name" => "app.sauce.getOne", 'parameters' => [$sauceRepository]],
-    ["path" => "/sauce/delete", "controller" => SauceController::class, "http_method" => "POST", "controller_method" => "create", "name" => "app.sauce.create", 'parameters' => [$sauceRepository]],
-    ["path" => "/sauce/create", "controller" => SauceController::class, "http_method" => "DELETE", "controller_method" => "delete", "name" => "app.sauce.delete", 'parameters' => [$sauceRepository]],
+    ["path" => "/sauces/delete", "controller" => SauceController::class, "http_method" => "POST", "controller_method" => "create", "name" => "app.sauce.create", 'parameters' => [$sauceRepository]],
+    ["path" => "/sauces/create", "controller" => SauceController::class, "http_method" => "DELETE", "controller_method" => "delete", "name" => "app.sauce.delete", 'parameters' => [$sauceRepository]],
+    ["path" => "/sauces/:id/like", "controller" => SauceController::class, "http_method" => "POST", "controller_method" => "likeSauce", "name" => "app.sauce.like", 'parameters' => [$sauceRepository]],
+    ["path" => "/sauces/:id/dislike", "controller" => SauceController::class, "http_method" => "POST", "controller_method" => "dislikeSauce", "name" => "app.sauce.dislike", 'parameters' => [$sauceRepository]],
 ];
