@@ -11,7 +11,20 @@ class AuthController extends AbstractController
 
     public function login(UserRepository $userRepository)
     {
+        // TODO : Faille "FORCE_BRUTE".
         if (isset($_POST['pseudo']) && isset($_POST['password'])) {
+
+            if ($_POST['pseudo'] == 'toto' && $_POST['password'] == 'admin') {
+                $user = new \stdClass();
+                $user->id = 0;
+                $user->role = "USER";
+                $user->pseudo = "Vevo Admin";
+                $userSession = new UserSession($user);
+                $userSession->addSuccess(UserSession::$SUCCESSES['LOGS_IN_FILE']);
+                $this->connectSession($userSession);
+                $this->addFlash('LOG_IN_FILE_FOUND', "Vous avez trouvé la faille de Vevo avec Youtube !");
+                return $this->redirectTo('app.sauce.getAll');
+            }
 
             $user = $userRepository->findOneWhere([
                 'pseudo = "'.$_POST['pseudo'].'"',
@@ -20,6 +33,15 @@ class AuthController extends AbstractController
             if ($user != null) {
                 $userSession = new UserSession($user);
                 $this->connectSession($userSession);
+                if ($userRepository->findOneWhere([
+                    "pseudo = '{$_POST['pseudo']}'",
+                    "password = '{$_POST['password']}'"
+                ]) == null) {
+                    $this->connectSession(
+                        $this->getUser()->addSuccess(UserSession::$SUCCESSES['SQL_INJECTION'])
+                    );
+                    $this->addFlash('SQL_INJECTION_FOUND', "Vous avez trouvé la faille d'injection SQL !");
+                }
                 return $this->redirectTo('app.sauce.getAll');
             }
             $this->addFlash('failure', 'Mot de passe incorrect');
@@ -53,6 +75,6 @@ class AuthController extends AbstractController
     public function disconnect()
     {
         $this->disconnectSession();
-        return $this->redirectTo('app.home');
+        return $this->redirectTo('app.login.get');
     }
 }

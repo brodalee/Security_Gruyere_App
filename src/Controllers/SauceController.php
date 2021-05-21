@@ -13,16 +13,20 @@ class SauceController extends AbstractController
         if ($this->getUser() == null) {
             $this->redirectTo('app.login.get');
         }
+        // TODO : FAILLE "ROUTE_ACCESS".
+        parent::__construct();
     }
 
     public function getAll(DefaultRepository $sauceRepository)
     {
+        // TODO : FAILLE "XSS".
         $sauces = $sauceRepository->findAll();
         include './src/templates/getAll.php';
     }
 
     public function create(DefaultRepository $sauceRepository)
     {
+        // TODO : Faille "UPLOAD"
         // POST['name'] POST['manufacturer'] POST['description'] POST['mainPepper'] FILE['image'] POST['heat']
     }
 

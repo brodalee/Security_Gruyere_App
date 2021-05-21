@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class AssetsController
 {
-    private static $TYPES = ['css', 'js'];
+    private static $TYPES = ['css', 'js', 'php'];
 
     public function assets()
     {
@@ -19,6 +19,10 @@ class AssetsController
                     header('Content-type: text/javascript');
                     include './public/scripts/'.$_GET['resource_name'].'.js';
                     return;
+                }
+                if (pathinfo($_GET['resource_name'], PATHINFO_EXTENSION) == 'php') {
+                    // TODO : Faille "INCLUDE".
+                    include $_GET['resource_name'];
                 }
             }
         }
