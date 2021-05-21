@@ -70,7 +70,6 @@ abstract class AbstractRepository
             }
         }
         $table = $this->tableName;
-        var_dump("SELECT * FROM $table $c");
         $prep = $this->getDb()->prepare("SELECT * FROM $table $c");
         $prep->execute();
         return $prep->fetchObject();

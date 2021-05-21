@@ -11,11 +11,13 @@ class UserSession implements UserInterface
     private $role;
     private $pseudo;
 
-    public function __construct($user, string $role = 'USER')
+    public function __construct($user = NULL, string $role = 'USER')
     {
         $this->role = $role;
-        $this->pseudo = $user->pseudo;
-        $this->id = $user->id;
+        if ($user != NULL) {
+            $this->pseudo = $user->pseudo;
+            $this->id = $user->id;
+        }
     }
 
     public function getRole()

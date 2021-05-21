@@ -23,10 +23,10 @@ class AuthController extends AbstractController
                 return $this->redirectTo('app.sauce.getAll');
             }
             $this->addFlash('failure', 'Mot de passe incorrect');
-            return $this->redirectTo('app.home');
+            return $this->redirectTo('app.login.get');
         }
         $this->addFlash('failure', 'Identifiant inconnu.');
-        return $this->redirectTo('app.home');
+        return $this->redirectTo('app.login.get');
     }
 
     public function loginGet()
@@ -44,10 +44,10 @@ class AuthController extends AbstractController
         if (isset($_POST['pseudo']) && isset($_POST['password'])) {
 
             $userRepository->create($_POST['pseudo'], $_POST['password']);
-            return $this->redirectTo('app.home');
+            return $this->redirectTo('app.login.get');
         }
         $this->addFlash('failure', 'Une erreur est survenue.');
-        return $this->redirectTo('app.home');
+        return $this->redirectTo('app.signup.get');
     }
 
     public function disconnect()

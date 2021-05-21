@@ -18,9 +18,6 @@ class SauceController extends AbstractController
     public function getAll(DefaultRepository $sauceRepository)
     {
         $sauces = $sauceRepository->findAll();
-        /*echo $this->render('getAll.php', [
-            'sauces' => $sauceRepository->findAll()
-        ]);*/
         include './src/templates/getAll.php';
     }
 
