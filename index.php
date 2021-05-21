@@ -22,4 +22,7 @@ foreach ($routes as $route) {
 }
 
 $rooter = new Router($collection);
-$rooter->matchCurrentRequest();
+$matched = $rooter->matchCurrentRequest();
+if (!$matched) {
+    http_response_code(404);
+}

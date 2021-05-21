@@ -20,14 +20,23 @@ class AuthController extends AbstractController
             if ($user != null) {
                 $userSession = new UserSession($user);
                 $this->connectSession($userSession);
-                echo "azeaze";
-                //return $this->redirectTo('app.sauce.getAll');
+                return $this->redirectTo('app.sauce.getAll');
             }
             $this->addFlash('failure', 'Mot de passe incorrect');
-            //return $this->redirectTo('app.home');
+            return $this->redirectTo('app.home');
         }
         $this->addFlash('failure', 'Identifiant inconnu.');
-        //return $this->redirectTo('app.home');
+        return $this->redirectTo('app.home');
+    }
+
+    public function loginGet()
+    {
+        echo $this->render('connexion.html');
+    }
+
+    public function signupGet()
+    {
+        echo $this->render('inscription.html');
     }
 
     public function signup(UserRepository $userRepository)
