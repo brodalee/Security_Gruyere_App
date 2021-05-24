@@ -56,10 +56,10 @@
             <div _ngcontent-c1="" class="right-nav">
                 <ul class="ul_content">
                     <li class="li_content">
-                        <a _ngcontent-c1="" href="/auth/signup"> Inscription </a>
+                        <a _ngcontent-c1="" href="{{ route::app.signup.get }}"> Inscription </a>
                     </li>
                     <li class="li_content">
-                        <a _ngcontent-c1="" href="/auth/login" class="active"> Connexion </a>
+                        <a _ngcontent-c1="" href="{{ route::app.login.get }}" class="active"> Connexion </a>
                     </li>
                     <li class="li_content"></li>
                 </ul>
@@ -68,7 +68,7 @@
     </header>
     <div class="container">
         <div _nghost-c2="">
-            <form action="/auth/login" method="POST" _ngcontent-c2=""
+            <form action="{{ route::app.login.post }}" method="POST" _ngcontent-c2=""
                   class="ng-untouched ng-pristine ng-invalid">
                 <div _ngcontent-c2="" class="form-group"><label _ngcontent-c2="" for="pseudo">Pseudo</label>
                     <input name="pseudo"

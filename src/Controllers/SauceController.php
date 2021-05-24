@@ -26,6 +26,7 @@ class SauceController extends AbstractController
 
     public function create(DefaultRepository $sauceRepository)
     {
+        echo "aze";
         // TODO : Faille "UPLOAD"
         // POST['name'] POST['manufacturer'] POST['description'] POST['mainPepper'] FILE['image'] POST['heat']
     }

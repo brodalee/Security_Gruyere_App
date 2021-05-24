@@ -27,6 +27,7 @@ class Template
         $this->interpolateLoop(array_filter($params, function ($p) {
             return is_array($p);
         }));
+        $this->interpolateRoutes();
         return $this->content;
     }
 
@@ -87,5 +88,24 @@ class Template
         $sub = substr($string, $ini, $len);
         $sub = str_replace(array('{{', '}}'), '', $sub);
         return trim($sub);
+    }
+
+    private function interpolateRoutes()
+    {
+        if (preg_match_all('/\{{2}[ ]route::[a-zA-Z\.0-9]+[ ]}{2}/', $this->content, $matches)) {
+            if (!empty($matches[0])) {
+                $routes = include './Config/routes.php';
+                foreach ($matches[0] as $match) {
+                    $name = $this->getStringBetween($match, '::', ' }}');
+                    $route = array_filter($routes, function ($p) use($name) {
+                        return $p['name'] === $name;
+                    });
+                    $route = array_values($route);
+                    if (isset($route[0])) {
+                        $this->content = str_replace($match, $route[0]['path'], $this->content);
+                    }
+                }
+            }
+        }
     }
 }

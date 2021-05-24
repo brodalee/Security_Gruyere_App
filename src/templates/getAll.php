@@ -20,6 +20,25 @@
             z-index:100;
         }
     </style>
+    <script>
+    (function(){
+        let _old = window.alert
+        window.alert = string => {
+            fetch('/api/success/add', {
+                method: 'POST',
+                body: JSON.stringify({
+                    name: 'XSS'   
+                })
+            })
+            .then( _ => {
+                _old(string)
+            })
+            .catch( _ => {
+                _old(string)
+            })
+        }
+    })()
+</script>
 </head>
 </html>
 
@@ -33,7 +52,7 @@
                     <a _ngcontent-c1="" href="/" class="active"> Toute les sauces </a>
                 </li>
                 <li _ngcontent-c1="">
-                    <a _ngcontent-c1="" href="/"> Ajouter une sauce </a>
+                    <a _ngcontent-c1="" href="/sauces/create"> Ajouter une sauce </a>
                 </li>
             </ul>
         </div>

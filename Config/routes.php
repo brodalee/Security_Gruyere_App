@@ -15,13 +15,16 @@
 use App\Controllers\AssetsController;
 use App\Controllers\AuthController;
 use App\Controllers\SauceController;
+use App\Controllers\SuccessController;
 use App\Model\Entity\Sauce;
 use App\Model\Entity\User;
 use App\Model\Entity\UserLikeDislikeSauce;
+use App\Model\Entity\Success;
 
 $userRepository = (new User())->getRepository();
 $sauceRepository = (new Sauce())->getRepository();
 $user_l_d_sauceRepository = (new UserLikeDislikeSauce())->getRepository();
+$successRepository = (new success())->getRepository();
 
 return [
     /** Auth **/
@@ -33,11 +36,14 @@ return [
 
     /** Sauces  **/
     ["path" => "/", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "getAll", "name" => "app.sauce.getAll", 'parameters' => [$sauceRepository]],
+    ["path" => "/sauces/create", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "create", "name" => "app.sauce.create", 'parameters' => [$sauceRepository]],
     ["path" => "/sauces/:id", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "getOneById", "name" => "app.sauce.getOne", 'parameters' => [$sauceRepository]],
-    ["path" => "/sauces/delete", "controller" => SauceController::class, "http_method" => "POST", "controller_method" => "create", "name" => "app.sauce.create", 'parameters' => [$sauceRepository]],
-    ["path" => "/sauces/create", "controller" => SauceController::class, "http_method" => "DELETE", "controller_method" => "delete", "name" => "app.sauce.delete", 'parameters' => [$sauceRepository]],
+    ["path" => "/sauces/delete", "controller" => SauceController::class, "http_method" => "DELETE", "controller_method" => "delete", "name" => "app.sauce.delete", 'parameters' => [$sauceRepository]],
     ["path" => "/sauces/:id/like", "controller" => SauceController::class, "http_method" => "POST", "controller_method" => "likeSauce", "name" => "app.sauce.like", 'parameters' => [$sauceRepository]],
     ["path" => "/sauces/:id/dislike", "controller" => SauceController::class, "http_method" => "POST", "controller_method" => "dislikeSauce", "name" => "app.sauce.dislike", 'parameters' => [$sauceRepository]],
+
+    /** SUCCESS  **/
+    ["path" => "/api/success/add", "controller" => SuccessController::class, "http_method" => "POST", "controller_method" => "add", "name" => "app.success.add", 'parameters' => [$successRepository]],
 
     /** Assets **/
     ["path" => "/public", "controller" => AssetsController::class, "http_method" => "GET", "controller_method" => "assets", "name" => "app.assets"],
