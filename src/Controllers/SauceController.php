@@ -21,11 +21,15 @@ class SauceController extends AbstractController
     {
         // TODO : FAILLE "XSS".
         $sauces = $sauceRepository->findAll();
-        include './src/templates/getAll.php';
+        //include './src/templates/getAll.php';
+        echo $this->render('getAll.php', [
+            'sauces' => $sauces
+        ]);
     }
 
     public function create()
     {
+        //$this->addFlash('toto', 'test');
         echo $this->render('createSauce.html');
     }
 
@@ -33,7 +37,7 @@ class SauceController extends AbstractController
     {
         var_dump($_POST, $_FILES);
         // TODO : Faille "UPLOAD"
-        // POST['name'] POST['manufacturer'] POST['description'] POST['mainPepper'] FILE['image'] POST['heat']
+        // POST['name'] POST['manufacturer'] POST['description'] POST['main_pepper'] FILE['image'] POST['heat']
     }
 
     public function delete(DefaultRepository $sauceRepository)

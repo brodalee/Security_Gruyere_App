@@ -103,21 +103,37 @@
         <p _ngcontent-c5="" class="list-title">THE SAUCES</p>
 
         <div _ngcontent-c5="" class="sauce-list">
-            <?php
-
-                foreach ($sauces as $sauce) {
-                    echo "
-<div _ngcontent-c5='' class='sauce-list-item'>
-    <img _ngcontent-c5=''
-         src='{$sauce->imageUrl}'>
-    <h4 _ngcontent-c5=''>{$sauce->name}</h4>
-    <p _ngcontent-c5=''>Heat: {$sauce->heat}/10</p>
-</div>
-                    ";
-                }
-            ?>
+            {{ loop sauces with "./src/templates/sub/sauce.php" }}
         </div>
     </div>
 </div>
+
+<div>
+    <div id="first_visit" class="modal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Bienvenue sur Piquante, l'application gruyère</h5>
+                    <button onclick="closeModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Qu'est-ce que vous allez faire ?</p>
+                    <p>Il y a un total de X failles web sur notre application, trouvez-les, exploitez-les et corrigez-les avant qu'un petit malin fasse des dégats.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const closeModal = () => document.getElementById('first_visit').style.display = "none";
+
+    if (localStorage.getItem('first_visit') == null) {
+        document.getElementById('first_visit').style.display = "block";
+        localStorage.setItem('first_visit', true)
+    }
+</script>
 
 </body>

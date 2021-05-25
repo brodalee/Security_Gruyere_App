@@ -28,6 +28,7 @@ class Template
             return is_array($p);
         }));
         $this->interpolateRoutes();
+        $this->interpolateFlashMessage();
         return $this->content;
     }
 
@@ -103,6 +104,28 @@ class Template
                     $route = array_values($route);
                     if (isset($route[0])) {
                         $this->content = str_replace($match, $route[0]['path'], $this->content);
+                    }
+                }
+            }
+        }
+    }
+
+    public function interpolateFlashMessage()
+    {
+        if (preg_match_all('/\{{2}[ ]flash::[a-zA-Z\.0-9]+::[a-zA-Z\.\/0-9]+[ ]}{2}/', $this->content, $matches)) {
+            if (!empty($matches[0])) {
+                foreach ($matches[0] as $match) {
+                    $name = $this->getStringBetween($match, '::', '::');
+                    if (isset($_SESSION['flashes'][$name])) {
+                        $template = str_replace($name.'::', '', $this->getStringBetween($match, '::', ' }}'));
+                        $tpl = new Template();
+                        $flashContent = $tpl->render('flash/' . $template, [
+                            'message' => $_SESSION['flashes'][$name]
+                        ]);
+                        unset($_SESSION['flashes'][$name]);
+                        $this->content = str_replace($match, $flashContent, $this->content);
+                    } else {
+                        $this->content = str_replace($match, '', $this->content);
                     }
                 }
             }

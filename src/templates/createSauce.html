@@ -71,6 +71,10 @@
 </header>
 
 <div>
+    {{ flash::toto::flash.html }}
+</div>
+
+<div>
     <form enctype="multipart/form-data" method="POST" action="{{ route::app.sauce.create.post }}" _ngcontent-c6="" class="ng-invalid ng-dirty ng-touched">
         <div _ngcontent-c6="" class="form-group">
             <label _ngcontent-c6="" for="name">Name</label>
@@ -88,11 +92,6 @@
         </div>
         <div _ngcontent-c6="" class="form-group">
             <input name="image" type="file">
-            <!-- <button _ngcontent-c6="" mat-raised-button="" class="mat-raised-button mat-primary">
-                <span class="mat-button-wrapper">ADD IMAGE</span>
-                <div class="mat-button-ripple mat-ripple" matripple="" ng-reflect-centered="false"></div>
-                <div class="mat-button-focus-overlay"></div>
-            </button> -->
         </div>
         <div _ngcontent-c6="" class="form-group">
             <label _ngcontent-c6="" for="main-pepper">Main Pepper
