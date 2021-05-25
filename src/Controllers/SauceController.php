@@ -24,9 +24,14 @@ class SauceController extends AbstractController
         include './src/templates/getAll.php';
     }
 
-    public function create(DefaultRepository $sauceRepository)
+    public function create()
     {
-        echo "aze";
+        echo $this->render('createSauce.html');
+    }
+
+    public function createPOST(DefaultRepository $sauceRepository)
+    {
+        var_dump($_POST, $_FILES);
         // TODO : Faille "UPLOAD"
         // POST['name'] POST['manufacturer'] POST['description'] POST['mainPepper'] FILE['image'] POST['heat']
     }

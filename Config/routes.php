@@ -36,7 +36,8 @@ return [
 
     /** Sauces  **/
     ["path" => "/", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "getAll", "name" => "app.sauce.getAll", 'parameters' => [$sauceRepository]],
-    ["path" => "/sauces/create", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "create", "name" => "app.sauce.create", 'parameters' => [$sauceRepository]],
+    ["path" => "/sauces/create", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "create", "name" => "app.sauce.create.get"],
+    ["path" => "/sauces/create", "controller" => SauceController::class, "http_method" => "POST", "controller_method" => "createPOST", "name" => "app.sauce.create.post", 'parameters' => [$sauceRepository]],
     ["path" => "/sauces/:id", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "getOneById", "name" => "app.sauce.getOne", 'parameters' => [$sauceRepository]],
     ["path" => "/sauces/delete", "controller" => SauceController::class, "http_method" => "DELETE", "controller_method" => "delete", "name" => "app.sauce.delete", 'parameters' => [$sauceRepository]],
     ["path" => "/sauces/:id/like", "controller" => SauceController::class, "http_method" => "POST", "controller_method" => "likeSauce", "name" => "app.sauce.like", 'parameters' => [$sauceRepository]],

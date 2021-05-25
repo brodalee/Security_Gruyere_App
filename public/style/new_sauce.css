@@ -1,0 +1,1056 @@
+
+.mat-badge-content {
+    font-weight: 600;
+    font-size: 12px;
+    font-family: Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-badge-small .mat-badge-content {
+    font-size: 6px
+}
+
+.mat-badge-large .mat-badge-content {
+    font-size: 24px
+}
+
+.mat-h1, .mat-headline, .mat-typography h1 {
+    font: 400 24px/32px Roboto, "Helvetica Neue", sans-serif;
+    margin: 0 0 16px
+}
+
+.mat-h2, .mat-title, .mat-typography h2 {
+    font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+    margin: 0 0 16px
+}
+
+.mat-h3, .mat-subheading-2, .mat-typography h3 {
+    font: 400 16px/28px Roboto, "Helvetica Neue", sans-serif;
+    margin: 0 0 16px
+}
+
+.mat-h4, .mat-subheading-1, .mat-typography h4 {
+    font: 400 15px/24px Roboto, "Helvetica Neue", sans-serif;
+    margin: 0 0 16px
+}
+
+.mat-h5, .mat-typography h5 {
+    font: 400 11.62px/20px Roboto, "Helvetica Neue", sans-serif;
+    margin: 0 0 12px
+}
+
+.mat-h6, .mat-typography h6 {
+    font: 400 9.38px/20px Roboto, "Helvetica Neue", sans-serif;
+    margin: 0 0 12px
+}
+
+.mat-body-2, .mat-body-strong {
+    font: 500 14px/24px Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-body, .mat-body-1, .mat-typography {
+    font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-body p, .mat-body-1 p, .mat-typography p {
+    margin: 0 0 12px
+}
+
+.mat-caption, .mat-small {
+    font: 400 12px/20px Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-display-4, .mat-typography .mat-display-4 {
+    font: 300 112px/112px Roboto, "Helvetica Neue", sans-serif;
+    margin: 0 0 56px;
+    letter-spacing: -.05em
+}
+
+.mat-display-3, .mat-typography .mat-display-3 {
+    font: 400 56px/56px Roboto, "Helvetica Neue", sans-serif;
+    margin: 0 0 64px;
+    letter-spacing: -.02em
+}
+
+.mat-display-2, .mat-typography .mat-display-2 {
+    font: 400 45px/48px Roboto, "Helvetica Neue", sans-serif;
+    margin: 0 0 64px;
+    letter-spacing: -.005em
+}
+
+.mat-display-1, .mat-typography .mat-display-1 {
+    font: 400 34px/40px Roboto, "Helvetica Neue", sans-serif;
+    margin: 0 0 64px
+}
+
+.mat-bottom-sheet-container {
+    font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-button, .mat-fab, .mat-flat-button, .mat-icon-button, .mat-mini-fab, .mat-raised-button, .mat-stroked-button {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 500
+}
+
+.mat-button-toggle {
+    font-family: Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-card {
+    font-family: Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-card-title {
+    font-size: 24px;
+    font-weight: 500
+}
+
+.mat-card-header .mat-card-title {
+    font-size: 20px
+}
+
+.mat-card-content, .mat-card-subtitle {
+    font-size: 14px
+}
+
+.mat-checkbox {
+    font-family: Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-checkbox-layout .mat-checkbox-label {
+    line-height: 24px
+}
+
+.mat-chip {
+    font-size: 14px;
+    font-weight: 500
+}
+
+.mat-chip .mat-chip-remove.mat-icon, .mat-chip .mat-chip-trailing-icon.mat-icon {
+    font-size: 18px
+}
+
+.mat-table {
+    font-family: Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-header-cell {
+    font-size: 12px;
+    font-weight: 500
+}
+
+.mat-cell, .mat-footer-cell {
+    font-size: 14px
+}
+
+.mat-calendar {
+    font-family: Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-calendar-body {
+    font-size: 13px
+}
+
+.mat-calendar-body-label, .mat-calendar-period-button {
+    font-size: 14px;
+    font-weight: 500
+}
+
+.mat-calendar-table-header th {
+    font-size: 11px;
+    font-weight: 400
+}
+
+.mat-dialog-title {
+    font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-expansion-panel-header {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 15px;
+    font-weight: 400
+}
+
+.mat-expansion-panel-content {
+    font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-form-field {
+    font-size: inherit;
+    font-weight: 400;
+    line-height: 1.125;
+    font-family: Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 1.34375em
+}
+
+.mat-form-field-prefix .mat-icon, .mat-form-field-suffix .mat-icon {
+    font-size: 150%;
+    line-height: 1.125
+}
+
+.mat-form-field-prefix .mat-icon-button, .mat-form-field-suffix .mat-icon-button {
+    height: 1.5em;
+    width: 1.5em
+}
+
+.mat-form-field-prefix .mat-icon-button .mat-icon, .mat-form-field-suffix .mat-icon-button .mat-icon {
+    height: 1.125em;
+    line-height: 1.125
+}
+
+.mat-form-field-infix {
+    padding: .5em 0;
+    border-top: .84375em solid transparent
+}
+
+.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    -webkit-transform: translateY(-1.34375em) scale(.75);
+    transform: translateY(-1.34375em) scale(.75);
+    width: 133.33333%
+}
+
+.mat-form-field-can-float .mat-input-server[label]:not(:label-shown) + .mat-form-field-label-wrapper .mat-form-field-label {
+    -webkit-transform: translateY(-1.34374em) scale(.75);
+    transform: translateY(-1.34374em) scale(.75);
+    width: 133.33334%
+}
+
+.mat-form-field-label-wrapper {
+    top: -.84375em;
+    padding-top: .84375em
+}
+
+.mat-form-field-label {
+    top: 1.34375em
+}
+
+.mat-form-field-underline {
+    bottom: 1.34375em
+}
+
+.mat-form-field-subscript-wrapper {
+    font-size: 75%;
+    margin-top: .66667em;
+    top: calc(100% - 1.79167em)
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding-bottom: 1.25em
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: .4375em 0
+}
+
+.mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    -webkit-transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.001px);
+    transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.001px);
+    -ms-transform: translateY(-1.28125em) scale(.75);
+    width: 133.33333%
+}
+
+.mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill + .mat-form-field-label-wrapper .mat-form-field-label {
+    -webkit-transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.00101px);
+    transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.00101px);
+    -ms-transform: translateY(-1.28124em) scale(.75);
+    width: 133.33334%
+}
+
+.mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server[label]:not(:label-shown) + .mat-form-field-label-wrapper .mat-form-field-label {
+    -webkit-transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.00102px);
+    transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.00102px);
+    -ms-transform: translateY(-1.28123em) scale(.75);
+    width: 133.33335%
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-label {
+    top: 1.28125em
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+    bottom: 1.25em
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper {
+    margin-top: .54167em;
+    top: calc(100% - 1.66667em)
+}
+
+@media print {
+    .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+        -webkit-transform: translateY(-1.28122em) scale(.75);
+        transform: translateY(-1.28122em) scale(.75)
+    }
+
+    .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill + .mat-form-field-label-wrapper .mat-form-field-label {
+        -webkit-transform: translateY(-1.28121em) scale(.75);
+        transform: translateY(-1.28121em) scale(.75)
+    }
+
+    .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server[label]:not(:label-shown) + .mat-form-field-label-wrapper .mat-form-field-label {
+        -webkit-transform: translateY(-1.2812em) scale(.75);
+        transform: translateY(-1.2812em) scale(.75)
+    }
+}
+
+.mat-form-field-appearance-fill .mat-form-field-infix {
+    padding: .25em 0 .75em 0
+}
+
+.mat-form-field-appearance-fill .mat-form-field-label {
+    top: 1.09375em;
+    margin-top: -.5em
+}
+
+.mat-form-field-appearance-fill.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    -webkit-transform: translateY(-.59375em) scale(.75);
+    transform: translateY(-.59375em) scale(.75);
+    width: 133.33333%
+}
+
+.mat-form-field-appearance-fill.mat-form-field-can-float .mat-input-server[label]:not(:label-shown) + .mat-form-field-label-wrapper .mat-form-field-label {
+    -webkit-transform: translateY(-.59374em) scale(.75);
+    transform: translateY(-.59374em) scale(.75);
+    width: 133.33334%
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 1em 0 1em 0
+}
+
+.mat-form-field-appearance-outline .mat-form-field-label {
+    top: 1.84375em;
+    margin-top: -.25em
+}
+
+.mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    -webkit-transform: translateY(-1.59375em) scale(.75);
+    transform: translateY(-1.59375em) scale(.75);
+    width: 133.33333%
+}
+
+.mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server[label]:not(:label-shown) + .mat-form-field-label-wrapper .mat-form-field-label {
+    -webkit-transform: translateY(-1.59374em) scale(.75);
+    transform: translateY(-1.59374em) scale(.75);
+    width: 133.33334%
+}
+
+.mat-grid-tile-footer, .mat-grid-tile-header {
+    font-size: 14px
+}
+
+.mat-grid-tile-footer .mat-line, .mat-grid-tile-header .mat-line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    box-sizing: border-box
+}
+
+.mat-grid-tile-footer .mat-line:nth-child(n+2), .mat-grid-tile-header .mat-line:nth-child(n+2) {
+    font-size: 12px
+}
+
+input.mat-input-element {
+    margin-top: -.0625em
+}
+
+.mat-menu-item {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 400
+}
+
+.mat-paginator, .mat-paginator-page-size .mat-select-trigger {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 12px
+}
+
+.mat-radio-button {
+    font-family: Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-select {
+    font-family: Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-select-trigger {
+    height: 1.125em
+}
+
+.mat-slide-toggle-content {
+    font-family: Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-slider-thumb-label-text {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 12px;
+    font-weight: 500
+}
+
+.mat-stepper-horizontal, .mat-stepper-vertical {
+    font-family: Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-step-label {
+    font-size: 14px;
+    font-weight: 400
+}
+
+.mat-step-sub-label-error {
+    font-weight: 400
+}
+
+.mat-step-label-error {
+    font-size: 14px
+}
+
+.mat-step-label-selected {
+    font-size: 14px;
+    font-weight: 500
+}
+
+.mat-tab-group {
+    font-family: Roboto, "Helvetica Neue", sans-serif
+}
+
+.mat-tab-label, .mat-tab-link {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 500
+}
+
+@import url("https://fonts.googleapis.com/css?family=Mali:700|Source+Sans+Pro");
+
+body {
+    font-family: "Source Sans Pro", sans-serif;
+    letter-spacing: 0.1em;
+    margin: 0;
+    white-space: pre-line;
+}
+
+html, body {
+    height: 100%;
+}
+
+mat-spinner {
+    margin: auto;
+}
+
+.container[_ngcontent-c0] {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+nav[_ngcontent-c1] {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    border-bottom: thin solid black;
+}
+
+h1[_ngcontent-c1] {
+    font-weight: 700;
+    font-size: 2.4em;
+    margin: 0;
+}
+
+h5[_ngcontent-c1] {
+    font-size: 1.2em;
+    font-weight: 400;
+    margin: 0;
+}
+
+.logo[_ngcontent-c1] {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text[_ngcontent-c1] {
+    text-align: center;
+}
+
+.logo-image[_ngcontent-c1] {
+    margin-right: 1em;
+}
+
+.logo-image[_ngcontent-c1] img[_ngcontent-c1] {
+    height: 4.5em;
+}
+
+.left-nav[_ngcontent-c1], .right-nav[_ngcontent-c1] {
+    align-self: center;
+    width: 30%;
+}
+
+.right-nav[_ngcontent-c1] ul[_ngcontent-c1] {
+    justify-content: flex-end;
+}
+.li_content {
+    margin: 0 15px;
+}
+
+.nav_content {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    border-bottom: thin solid black;
+}
+
+ul[_ngcontent-c1] {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+li[_ngcontent-c1] {
+    margin: 0 15px;
+}
+
+a[_ngcontent-c1] {
+    color: black;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a[_ngcontent-c1]:hover {
+    text-decoration: underline;
+}
+
+.active[_ngcontent-c1] {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+form[_ngcontent-c2] {
+    margin: 2em auto;
+    max-width: 750px;
+}
+
+.mat-button .mat-button-focus-overlay, .mat-icon-button .mat-button-focus-overlay {
+    opacity: 0
+}
+
+.mat-button:hover .mat-button-focus-overlay, .mat-stroked-button:hover .mat-button-focus-overlay {
+    opacity: .04
+}
+
+@media (hover: none) {
+    .mat-button:hover .mat-button-focus-overlay, .mat-stroked-button:hover .mat-button-focus-overlay {
+        opacity: 0
+    }
+}
+
+.mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+    overflow: visible
+}
+
+.mat-button::-moz-focus-inner, .mat-flat-button::-moz-focus-inner, .mat-icon-button::-moz-focus-inner, .mat-stroked-button::-moz-focus-inner {
+    border: 0
+}
+
+.mat-button[disabled], .mat-flat-button[disabled], .mat-icon-button[disabled], .mat-stroked-button[disabled] {
+    cursor: default
+}
+
+.mat-button.cdk-keyboard-focused .mat-button-focus-overlay, .mat-button.cdk-program-focused .mat-button-focus-overlay, .mat-flat-button.cdk-keyboard-focused .mat-button-focus-overlay, .mat-flat-button.cdk-program-focused .mat-button-focus-overlay, .mat-icon-button.cdk-keyboard-focused .mat-button-focus-overlay, .mat-icon-button.cdk-program-focused .mat-button-focus-overlay, .mat-stroked-button.cdk-keyboard-focused .mat-button-focus-overlay, .mat-stroked-button.cdk-program-focused .mat-button-focus-overlay {
+    opacity: .12
+}
+
+.mat-button::-moz-focus-inner, .mat-flat-button::-moz-focus-inner, .mat-icon-button::-moz-focus-inner, .mat-stroked-button::-moz-focus-inner {
+    border: 0
+}
+
+.mat-raised-button {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+    overflow: visible;
+    transform: translate3d(0, 0, 0);
+    transition: background .4s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1)
+}
+
+.mat-raised-button::-moz-focus-inner {
+    border: 0
+}
+
+.mat-raised-button[disabled] {
+    cursor: default
+}
+
+.mat-raised-button.cdk-keyboard-focused .mat-button-focus-overlay, .mat-raised-button.cdk-program-focused .mat-button-focus-overlay {
+    opacity: .12
+}
+
+.mat-raised-button::-moz-focus-inner {
+    border: 0
+}
+
+._mat-animation-noopable.mat-raised-button {
+    transition: none;
+    animation: none
+}
+
+.mat-stroked-button {
+    border: 1px solid currentColor;
+    padding: 0 15px;
+    line-height: 34px
+}
+
+.mat-fab {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+    overflow: visible;
+    transform: translate3d(0, 0, 0);
+    transition: background .4s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+    min-width: 0;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    flex-shrink: 0
+}
+
+.mat-fab::-moz-focus-inner {
+    border: 0
+}
+
+.mat-fab[disabled] {
+    cursor: default
+}
+
+.mat-fab.cdk-keyboard-focused .mat-button-focus-overlay, .mat-fab.cdk-program-focused .mat-button-focus-overlay {
+    opacity: .12
+}
+
+.mat-fab::-moz-focus-inner {
+    border: 0
+}
+
+._mat-animation-noopable.mat-fab {
+    transition: none;
+    animation: none
+}
+
+.mat-fab .mat-button-wrapper {
+    padding: 16px 0;
+    display: inline-block;
+    line-height: 24px
+}
+
+.mat-mini-fab {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+    overflow: visible;
+    transform: translate3d(0, 0, 0);
+    transition: background .4s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+    min-width: 0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    flex-shrink: 0
+}
+
+.mat-mini-fab::-moz-focus-inner {
+    border: 0
+}
+
+.mat-mini-fab[disabled] {
+    cursor: default
+}
+
+.mat-mini-fab.cdk-keyboard-focused .mat-button-focus-overlay, .mat-mini-fab.cdk-program-focused .mat-button-focus-overlay {
+    opacity: .12
+}
+
+.mat-mini-fab::-moz-focus-inner {
+    border: 0
+}
+
+._mat-animation-noopable.mat-mini-fab {
+    transition: none;
+    animation: none
+}
+
+.mat-mini-fab .mat-button-wrapper {
+    padding: 8px 0;
+    display: inline-block;
+    line-height: 24px
+}
+
+.mat-icon-button {
+    padding: 0;
+    min-width: 0;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    line-height: 40px;
+    border-radius: 50%
+}
+
+.mat-icon-button .mat-icon, .mat-icon-button i {
+    line-height: 24px
+}
+
+.mat-button-focus-overlay, .mat-button-ripple.mat-ripple {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    pointer-events: none;
+    border-radius: inherit
+}
+
+.mat-button-focus-overlay {
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity .2s cubic-bezier(.35, 0, .25, 1), background-color .2s cubic-bezier(.35, 0, .25, 1)
+}
+
+._mat-animation-noopable .mat-button-focus-overlay {
+    transition: none
+}
+
+@media screen and (-ms-high-contrast: active) {
+    .mat-button-focus-overlay {
+        background-color: rgba(255, 255, 255, .5)
+    }
+}
+
+.mat-button-ripple-round {
+    border-radius: 50%;
+    z-index: 1
+}
+
+.mat-button .mat-button-wrapper > *, .mat-fab .mat-button-wrapper > *, .mat-flat-button .mat-button-wrapper > *, .mat-icon-button .mat-button-wrapper > *, .mat-mini-fab .mat-button-wrapper > *, .mat-raised-button .mat-button-wrapper > *, .mat-stroked-button .mat-button-wrapper > * {
+    vertical-align: middle
+}
+
+.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button, .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button {
+    display: block;
+    font-size: inherit;
+    width: 2.5em;
+    height: 2.5em
+}
+
+@media screen and (-ms-high-contrast: active) {
+    .mat-button, .mat-fab, .mat-flat-button, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
+        outline: solid 1px
+    }
+}
+
+.mat-progress-spinner {
+    display: block;
+    position: relative
+}
+
+.mat-progress-spinner svg {
+    position: absolute;
+    transform: rotate(-90deg);
+    top: 0;
+    left: 0;
+    transform-origin: center;
+    overflow: visible
+}
+
+.mat-progress-spinner circle {
+    fill: transparent;
+    transform-origin: center;
+    transition: stroke-dashoffset 225ms linear
+}
+
+._mat-animation-noopable.mat-progress-spinner circle {
+    transition: none;
+    animation: none
+}
+
+.mat-progress-spinner.mat-progress-spinner-indeterminate-animation[mode=indeterminate] {
+    animation: mat-progress-spinner-linear-rotate 2s linear infinite
+}
+
+._mat-animation-noopable.mat-progress-spinner.mat-progress-spinner-indeterminate-animation[mode=indeterminate] {
+    transition: none;
+    animation: none
+}
+
+.mat-progress-spinner.mat-progress-spinner-indeterminate-animation[mode=indeterminate] circle {
+    transition-property: stroke;
+    animation-duration: 4s;
+    animation-timing-function: cubic-bezier(.35, 0, .25, 1);
+    animation-iteration-count: infinite
+}
+
+._mat-animation-noopable.mat-progress-spinner.mat-progress-spinner-indeterminate-animation[mode=indeterminate] circle {
+    transition: none;
+    animation: none
+}
+
+.mat-progress-spinner.mat-progress-spinner-indeterminate-fallback-animation[mode=indeterminate] {
+    animation: mat-progress-spinner-stroke-rotate-fallback 10s cubic-bezier(.87, .03, .33, 1) infinite
+}
+
+._mat-animation-noopable.mat-progress-spinner.mat-progress-spinner-indeterminate-fallback-animation[mode=indeterminate] {
+    transition: none;
+    animation: none
+}
+
+.mat-progress-spinner.mat-progress-spinner-indeterminate-fallback-animation[mode=indeterminate] circle {
+    transition-property: stroke
+}
+
+._mat-animation-noopable.mat-progress-spinner.mat-progress-spinner-indeterminate-fallback-animation[mode=indeterminate] circle {
+    transition: none;
+    animation: none
+}
+
+@keyframes mat-progress-spinner-linear-rotate {
+    0% {
+        transform: rotate(0)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes mat-progress-spinner-stroke-rotate-100 {
+    0% {
+        stroke-dashoffset: 268.60617px;
+        transform: rotate(0)
+    }
+    12.5% {
+        stroke-dashoffset: 56.54867px;
+        transform: rotate(0)
+    }
+    12.5001% {
+        stroke-dashoffset: 56.54867px;
+        transform: rotateX(180deg) rotate(72.5deg)
+    }
+    25% {
+        stroke-dashoffset: 268.60617px;
+        transform: rotateX(180deg) rotate(72.5deg)
+    }
+    25.0001% {
+        stroke-dashoffset: 268.60617px;
+        transform: rotate(270deg)
+    }
+    37.5% {
+        stroke-dashoffset: 56.54867px;
+        transform: rotate(270deg)
+    }
+    37.5001% {
+        stroke-dashoffset: 56.54867px;
+        transform: rotateX(180deg) rotate(161.5deg)
+    }
+    50% {
+        stroke-dashoffset: 268.60617px;
+        transform: rotateX(180deg) rotate(161.5deg)
+    }
+    50.0001% {
+        stroke-dashoffset: 268.60617px;
+        transform: rotate(180deg)
+    }
+    62.5% {
+        stroke-dashoffset: 56.54867px;
+        transform: rotate(180deg)
+    }
+    62.5001% {
+        stroke-dashoffset: 56.54867px;
+        transform: rotateX(180deg) rotate(251.5deg)
+    }
+    75% {
+        stroke-dashoffset: 268.60617px;
+        transform: rotateX(180deg) rotate(251.5deg)
+    }
+    75.0001% {
+        stroke-dashoffset: 268.60617px;
+        transform: rotate(90deg)
+    }
+    87.5% {
+        stroke-dashoffset: 56.54867px;
+        transform: rotate(90deg)
+    }
+    87.5001% {
+        stroke-dashoffset: 56.54867px;
+        transform: rotateX(180deg) rotate(341.5deg)
+    }
+    100% {
+        stroke-dashoffset: 268.60617px;
+        transform: rotateX(180deg) rotate(341.5deg)
+    }
+}
+
+@keyframes mat-progress-spinner-stroke-rotate-fallback {
+    0% {
+        transform: rotate(0)
+    }
+    25% {
+        transform: rotate(1170deg)
+    }
+    50% {
+        transform: rotate(2340deg)
+    }
+    75% {
+        transform: rotate(3510deg)
+    }
+    100% {
+        transform: rotate(4680deg)
+    }
+}
+
+.sauce-list[_ngcontent-c5] {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.sauce-list-item[_ngcontent-c5] {
+    text-align: center;
+    width: 220px;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.sauce-list-item[_ngcontent-c5] img[_ngcontent-c5] {
+    max-width: 200px;
+    max-height: 250px;
+}
+
+.sauce-list-item[_ngcontent-c5] h4[_ngcontent-c5] {
+    margin: 0;
+    font-weight: 500;
+}
+
+.sauce-list-item[_ngcontent-c5] p[_ngcontent-c5] {
+    margin: 0;
+}
+
+.sauce-list-item[_ngcontent-c5]:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    box-shadow: 1px 1px 20px rgba(120, 120, 120, 0.3);
+}
+
+.list-title[_ngcontent-c5] {
+    text-align: center;
+    margin: 2em auto;
+}
+
+form[_ngcontent-c6] {
+    margin: 2em auto;
+    max-width: 750px;
+}
+
+.heat-range[_ngcontent-c6] {
+    width: 60%;
+    display: block;
+}
+
+.heat-container[_ngcontent-c6] {
+    display: flex;
+}
+
+.heat-reading[_ngcontent-c6] {
+    width: 5em;
+    margin-left: 1.5em;
+    background-color: white;
+}
+
+input[type="file"][_ngcontent-c6] {
+    display: none;
+}
