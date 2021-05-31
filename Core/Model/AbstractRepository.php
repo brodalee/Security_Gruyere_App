@@ -19,6 +19,29 @@ abstract class AbstractRepository
         return DBFactory::get($config['type']);
     }
 
+    public function createFrom($data)
+    {
+        $c = $data;
+        $names = '';
+        $values = '';
+        if (is_object($data)) {
+            $c = get_object_vars($data);
+        }
+        foreach ($c as $name => $value) {
+            if (trim($names) !== '') $names.=', ';
+            $names .= "`$name`";
+            if (trim($values) !== '') $values.=', ';
+            if (is_int($value)) {
+                $values .= "$value";
+            } else {
+                $values .= "'$value'";
+            }
+        }
+        $this->customQuery("
+            INSERT INTO `{$this->tableName}` ({$names}) VALUES({$values})
+        ");
+    }
+
     public function findAll()
     {
         $table = $this->tableName;

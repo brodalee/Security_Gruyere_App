@@ -20,9 +20,12 @@ class AuthController extends AbstractController
                 $user->role = "USER";
                 $user->pseudo = "Vevo Admin";
                 $userSession = new UserSession($user);
-                $userSession->addSuccess(UserSession::$SUCCESSES['LOGS_IN_FILE']);
+                if ($userSession->addSuccess(UserSession::$SUCCESSES['LOGS_IN_FILE'])) {
+                    $this->addFlash(
+                        'LOG_IN_FILE_FOUND',
+                        "Vous avez trouvé la faille de Vevo avec Youtube ! : " . UserSession::$SUCCESSES['LOGS_IN_FILE']['Description']);
+                }
                 $this->connectSession($userSession);
-                $this->addFlash('LOG_IN_FILE_FOUND', "Vous avez trouvé la faille de Vevo avec Youtube !");
                 return $this->redirectTo('app.sauce.getAll');
             }
 

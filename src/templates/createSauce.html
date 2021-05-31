@@ -15,7 +15,9 @@
 </head>
 <body>
 
-<header _ngcontent-c0="" _nghost-c1="">
+{{ use::flash_file.html }}
+
+<header>
     <nav _ngcontent-c1="">
         <div _ngcontent-c1="" class="left-nav">
             <ul _ngcontent-c1="">
@@ -30,7 +32,7 @@
         </div>
         <div _ngcontent-c1="" class="logo">
             <div _ngcontent-c1="" class="logo-image">
-                <svg style="height: 200px; width: 200px;" version="1.0" xmlns="http://www.w3.org/2000/svg"
+                <svg style="height: 200px; width: 200px;" xmlns="http://www.w3.org/2000/svg"
                      width="159.000000pt" height="318.000000pt" viewBox="0 0 159.000000 318.000000"
                      preserveAspectRatio="xMidYMid meet">
 
@@ -91,20 +93,20 @@
                       rows="5"></textarea>
         </div>
         <div _ngcontent-c6="" class="form-group">
-            <input name="image" type="file">
+            <input name="imageUrl" type="file">
         </div>
         <div _ngcontent-c6="" class="form-group">
             <label _ngcontent-c6="" for="main-pepper">Main Pepper
                 Ingredient</label>
-            <input name="main_peeper" _ngcontent-c6="" class="form-control ng-untouched ng-pristine ng-invalid" id="main-pepper"
+            <input name="mainPepper" _ngcontent-c6="" class="form-control ng-untouched ng-pristine ng-invalid" id="main-pepper"
                    type="text">
         </div>
         <div _ngcontent-c6="" class="form-group">
             <label _ngcontent-c6="" for="heat">Heat</label>
             <div _ngcontent-c6="" class="heat-container">
-                <input _ngcontent-c6="" class="custom-range heat-range ng-valid ng-dirty ng-touched" id="heat" max="10"
+                <input name="heat" _ngcontent-c6="" class="custom-range heat-range ng-valid ng-dirty ng-touched" id="heat" max="10"
                        min="1" type="range">
-                <input name="heat" _ngcontent-c6="" class="form-control heat-reading ng-untouched ng-pristine" type="number"
+                <input id="heat_value"  _ngcontent-c6="" class="form-control heat-reading ng-untouched ng-pristine" type="number"
                        disabled="">
             </div>
         </div>
@@ -114,6 +116,12 @@
             <div class="mat-button-focus-overlay"></div>
         </button>
     </form>
+
+    <script>
+        document.getElementById('heat').addEventListener('input', e => {
+            document.getElementById('heat_value').value = e.target.value
+        })
+    </script>
 
 </div>
 </body>

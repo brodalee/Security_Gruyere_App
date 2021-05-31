@@ -21,6 +21,7 @@ class Template
     public function render(string $fileName, array $params = [])
     {
         $this->initFileContent($fileName);
+        $this->interpolateUseFile($params);
         $this->interpolate(array_filter($params, function ($p) {
             return is_string($p) || is_int($p) || is_float($p);
         }));
@@ -112,7 +113,7 @@ class Template
 
     public function interpolateFlashMessage()
     {
-        if (preg_match_all('/\{{2}[ ]flash::[a-zA-Z\.0-9]+::[a-zA-Z\.\/0-9]+[ ]}{2}/', $this->content, $matches)) {
+        if (preg_match_all('/\{{2}[ ]flash::[a-zA-Z\.0-9_]+::[a-zA-Z\.\/0-9]+[ ]}{2}/', $this->content, $matches)) {
             if (!empty($matches[0])) {
                 foreach ($matches[0] as $match) {
                     $name = $this->getStringBetween($match, '::', '::');
@@ -127,6 +128,20 @@ class Template
                     } else {
                         $this->content = str_replace($match, '', $this->content);
                     }
+                }
+            }
+        }
+    }
+
+    public function interpolateUseFile(array $params)
+    {
+        if (preg_match_all('/{{2}[ ]use::[a-zA-Z0-9\-._]+[ ]}{2}/', $this->content, $matches)) {
+            if (!empty($matches[0])) {
+                foreach ($matches[0] as $match) {
+                    $templateName = $this->getStringBetween($match, '::', ' }}');
+                    $tpl = new Template();
+                    $content = $tpl->render($templateName, $params);
+                    $this->content = str_replace($match, $content, $this->content);
                 }
             }
         }

@@ -30,7 +30,7 @@
                     name: 'XSS'   
                 })
             })
-            .then( _ => {
+            .then( async _ => {
                 _old(string)
             })
             .catch( _ => {
@@ -43,6 +43,8 @@
 </html>
 
 <body>
+
+{{ use::flash_file.html }}
 
 <header class="fixedElement">
     <nav _ngcontent-c1="">

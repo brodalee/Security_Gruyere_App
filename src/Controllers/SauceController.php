@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Model\Entity\Success;
+use App\Model\UserSession;
 use Core\AbstractController;
 use Core\Model\DefaultRepository;
 
@@ -11,33 +13,43 @@ class SauceController extends AbstractController
     public function __construct()
     {
         if ($this->getUser() == null) {
-            $this->redirectTo('app.login.get');
+            //return $this->redirectTo('app.login.get');
+            $user = new \stdClass();
+            $user->id = 0;
+            $user->role = "USER";
+            $user->pseudo = "Vevo Admin";
+            $userSession = new UserSession($user);
+            if ($userSession->addSuccess(UserSession::$SUCCESSES['ROUTE_ACCESS'])) {
+                $this->addFlash(
+                    'ROUTE_ACCESS_FOUND',
+                    'Vous avez trouvé la faille de droit d\'acces des zones du site : ' . UserSession::$SUCCESSES['ROUTE_ACCESS']['Description']);
+            }
         }
-        // TODO : FAILLE "ROUTE_ACCESS".
         parent::__construct();
     }
 
     public function getAll(DefaultRepository $sauceRepository)
     {
-        // TODO : FAILLE "XSS".
-        $sauces = $sauceRepository->findAll();
-        //include './src/templates/getAll.php';
         echo $this->render('getAll.php', [
-            'sauces' => $sauces
+            'sauces' => $sauceRepository->findAll()
         ]);
     }
 
     public function create()
     {
-        //$this->addFlash('toto', 'test');
         echo $this->render('createSauce.html');
     }
 
     public function createPOST(DefaultRepository $sauceRepository)
     {
-        var_dump($_POST, $_FILES);
+        $file = incoming_files()[0];
+        move_uploaded_file($file['tmp_name'], SITE_BASE_PATH.'public/img/'.$file['name']);
+        $_POST['imageUrl'] = $file['name'];
+        $_POST['heat'] = (int)
+        $_POST['userId'] = (int) $this->getUser()->getId();
+        $sauceRepository->createFrom($_POST);
+        $this->redirectTo('app.sauce.getAll');
         // TODO : Faille "UPLOAD"
-        // POST['name'] POST['manufacturer'] POST['description'] POST['main_pepper'] FILE['image'] POST['heat']
     }
 
     public function delete(DefaultRepository $sauceRepository)

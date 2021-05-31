@@ -19,12 +19,10 @@ use App\Controllers\SuccessController;
 use App\Model\Entity\Sauce;
 use App\Model\Entity\User;
 use App\Model\Entity\UserLikeDislikeSauce;
-use App\Model\Entity\Success;
 
 $userRepository = (new User())->getRepository();
 $sauceRepository = (new Sauce())->getRepository();
 $user_l_d_sauceRepository = (new UserLikeDislikeSauce())->getRepository();
-$successRepository = (new success())->getRepository();
 
 return [
     /** Auth **/
@@ -44,7 +42,7 @@ return [
     ["path" => "/sauces/:id/dislike", "controller" => SauceController::class, "http_method" => "POST", "controller_method" => "dislikeSauce", "name" => "app.sauce.dislike", 'parameters' => [$sauceRepository]],
 
     /** SUCCESS  **/
-    ["path" => "/api/success/add", "controller" => SuccessController::class, "http_method" => "POST", "controller_method" => "add", "name" => "app.success.add", 'parameters' => [$successRepository]],
+    ["path" => "/api/success/add", "controller" => SuccessController::class, "http_method" => "POST", "controller_method" => "add", "name" => "app.success.add"],
 
     /** Assets **/
     ["path" => "/public", "controller" => AssetsController::class, "http_method" => "GET", "controller_method" => "assets", "name" => "app.assets"],

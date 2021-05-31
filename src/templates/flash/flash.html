@@ -1,3 +1,21 @@
 <div>
-    {{ message }}
+    <div class="modal" role="dialog" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Yeah ! Une faille de trouvé !</h5>
+                    <button onclick="closeModalFlash(this)" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>{{ message }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script>
+    let closeModalFlash = (el) => el.offsetParent.offsetParent.offsetParent.style.display = 'none'
+</script>

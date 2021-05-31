@@ -57,11 +57,20 @@ class UserSession implements UserInterface
         if (in_array($successName, static::$SUCCESSES) && !in_array($successName, $this->successes)) {
             $this->successes[] = $successName;
             $successRepository = (new Success())->getRepository();
+            $wasAlreadyFound = $successRepository->customQuery(
+                'SELECT COUNT(Success.name) as N FROM `Success` WHERE name = "'.$successName['Name'].'"',
+                [], false
+            );
             $successRepository->customQuery(
               "INSERT INTO `Success` (`id`, `name`, `description`) VALUES(NULL, '{$successName['Name']}', '{$successName['Description']}')"
             );
+            return ((int) $wasAlreadyFound->N) === 0;
         }
-        return $this;
+        return false;
+    }
+
+    public function getId() {
+        return $this->id;
     }
 
     public function getRole()
