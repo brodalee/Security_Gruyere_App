@@ -33,12 +33,20 @@ class AssetsController extends AbstractController
                             $this->addFlash('INCLUDE_FOUND', 'Vous avez trouvé la faille Include : ' . UserSession::$SUCCESSES['INCLUDE']['Description']);
                         }
                     }
-                    require_once './public/img/' . $_GET['resource_name'];
+                    ob_get_clean();
+                    header('Content-type: image/'.strtolower(pathinfo($_GET['resource_name'], PATHINFO_EXTENSION)));
+                    readfile('./public/img/' . $_GET['resource_name'], true);
                     return;
                 }
                 if (pathinfo($_GET['resource_name'], PATHINFO_EXTENSION) == 'php') {
-                    // TODO : Faille "INCLUDE".
-                    include $_GET['resource_name'];
+                    if ($this->containsExecutableCode($_GET['resource_name']) === TRUE) {
+                        if ($this
+                            ->getUser()
+                            ->addSuccess(UserSession::$SUCCESSES['INCLUDE'])) {
+                            $this->addFlash('INCLUDE_FOUND', 'Vous avez trouvé la faille Include : ' . UserSession::$SUCCESSES['INCLUDE']['Description']);
+                        }
+                    }
+                    include('./public/img/' . $_GET['resource_name']);
                 }
             }
         }
@@ -47,7 +55,7 @@ class AssetsController extends AbstractController
 
     private function containsExecutableCode($name) {
         $content = file_get_contents('./public/img/' . $name);
-        preg_match_all('/\<\?php(.*)\?\>/i', $content, $match);
+        preg_match_all('/\<\?php/i', $content, $match);
         return !empty($match[0]);
     }
 }
