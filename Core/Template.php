@@ -28,6 +28,9 @@ class Template
         $this->interpolateLoop(array_filter($params, function ($p) {
             return is_array($p);
         }));
+        $this->interpolateObject(array_filter($params, function($p) {
+            return is_object($p);
+        }));
         $this->interpolateRoutes();
         $this->interpolateFlashMessage();
         return $this->content;
@@ -37,6 +40,17 @@ class Template
     {
         foreach ($params as $name => $value) {
             $this->content = str_replace("{{ $name }}", $value, $this->content);
+        }
+    }
+
+    private function interpolateObject(array $params)
+    {
+        foreach ($params as $name => $value) {
+            preg_match_all("/$name->[a-zA-Z0-9]+/", $this->content, $matches);
+            foreach ($matches[0] as $globalMatch) {
+                $property = str_replace("$name->", "", $globalMatch);
+                $this->content = str_replace("$$name->$property", $value->$property, $this->content);
+            }
         }
     }
 

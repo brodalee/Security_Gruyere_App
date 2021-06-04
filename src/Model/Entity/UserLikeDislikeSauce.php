@@ -2,6 +2,7 @@
 
 namespace App\Model\Entity;
 
+use App\Model\Repository\LikeDislikeSauceRepository;
 use Core\Model\AbstractEntity;
 
 class UserLikeDislikeSauce extends AbstractEntity
@@ -19,6 +20,7 @@ class UserLikeDislikeSauce extends AbstractEntity
 
     public function __construct()
     {
+        $this->repositoryName = LikeDislikeSauceRepository::class;
         $this->tableName = "User_Like_Dislike_Sauce";
     }
 }

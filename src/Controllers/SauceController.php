@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Model\Entity\Success;
+use App\Model\Entity\UserLikeDislikeSauce;
 use App\Model\UserSession;
 use Core\AbstractController;
 use Core\Model\DefaultRepository;
@@ -49,7 +50,6 @@ class SauceController extends AbstractController
         $_POST['userId'] = (int) $this->getUser()->getId();
         $sauceRepository->createFrom($_POST);
         $this->redirectTo('app.sauce.getAll');
-        // TODO : Faille "UPLOAD"
     }
 
     public function delete(DefaultRepository $sauceRepository)
@@ -59,8 +59,12 @@ class SauceController extends AbstractController
 
     public function getOneById(string $id, DefaultRepository $sauceRepository)
     {
-        echo $this->render('singleSauce.php', [
-            'sauce' => $sauceRepository->findAllBy('id', $id)
+        $sauce = $sauceRepository->findAllBy('id', $id)[0];
+        $likesDislikes = (new UserLikeDislikeSauce())->getRepository()->getLikeDislikeCount($sauce->id);
+        echo $this->render('sauce.html', [
+            'sauce' => $sauce,
+            'likes' => $likesDislikes->likes,
+            'dislikes' => $likesDislikes->dislikes
         ]);
     }
 
