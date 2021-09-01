@@ -64,15 +64,8 @@ class SauceController extends AbstractController
         echo $this->render('sauce.html', [
             'sauce' => $sauce,
             'likes' => $likesDislikes->likes,
-            'dislikes' => $likesDislikes->dislikes
+            'dislikes' => $likesDislikes->dislikes,
+            'userId' => $this->getUser()->getId()
         ]);
-    }
-
-    public function likeSauce(string $sauceId, DefaultRepository $sauceRepository)
-    {
-    }
-
-    public function dislikeSauce(string $sauceId, DefaultRepository $sauceRepository)
-    {
     }
 }

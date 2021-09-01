@@ -119,4 +119,19 @@ abstract class AbstractRepository
         $prep = $this->getDb()->prepare("DELETE FROM `$table` WHERE $field = ?");
         return $prep->execute([$value]);
     }
+
+    public function deleteByFields(array $fields)
+    {
+        $table = $this->tableName;
+        $c = "";
+        foreach ($fields as $name => $value) {
+            if (trim($c) === "") {
+                $c .= " WHERE $name = '$value' ";
+            } else {
+                $c .= " AND $name = '$value' ";
+            }
+        }
+        $prep = $this->getDb()->prepare("DELETE FROM `$table` $c ");
+        return $prep->execute();
+    }
 }

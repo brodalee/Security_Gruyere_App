@@ -14,7 +14,7 @@ class AuthController extends AbstractController
         // TODO : Faille "FORCE_BRUTE".
         if (isset($_POST['pseudo']) && isset($_POST['password'])) {
 
-            if ($_POST['pseudo'] == 'toto' && $_POST['password'] == 'admin') {
+            if ($_POST['pseudo'] == 'admin' && $_POST['password'] == 'admin') {
                 $user = new \stdClass();
                 $user->id = 0;
                 $user->role = "USER";
@@ -40,10 +40,9 @@ class AuthController extends AbstractController
                     "pseudo = '{$_POST['pseudo']}'",
                     "password = '{$_POST['password']}'"
                 ]) == null) {
-                    $this->connectSession(
-                        $this->getUser()->addSuccess(UserSession::$SUCCESSES['SQL_INJECTION'])
-                    );
-                    $this->addFlash('SQL_INJECTION_FOUND', "Vous avez trouvé la faille d'injection SQL !");
+                    if ($this->getUser()->addSuccess(UserSession::$SUCCESSES['SQL_INJECTION'])) {
+                        $this->addFlash('SQL_INJECTION_FOUND', "Vous avez trouvé la faille d'injection SQL !");
+                    }
                 }
                 return $this->redirectTo('app.sauce.getAll');
             }

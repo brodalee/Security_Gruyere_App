@@ -40,6 +40,10 @@ class UserSession implements UserInterface
         "LOGS_IN_FILE"      => [
             'Name'          => 'La Youtube / Vevo',
             'Description'   => 'Vous vous êtes connecté avec des logs en dur dans le code.'
+        ],
+        "FULL_PATH_DISCLOSURE"  => [
+            'Name'          => 'Full Path Disclosure',
+            'Description'   => 'Vous avez accès au chemin d\'un/plusieurs script(s) sur le server.'
         ]
     ];
 

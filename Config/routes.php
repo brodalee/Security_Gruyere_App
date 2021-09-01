@@ -12,6 +12,7 @@
  *      ]
  */
 
+use App\Controllers\ApiController;
 use App\Controllers\AssetsController;
 use App\Controllers\AuthController;
 use App\Controllers\SauceController;
@@ -43,6 +44,10 @@ return [
 
     /** SUCCESS  **/
     ["path" => "/api/success/add", "controller" => SuccessController::class, "http_method" => "POST", "controller_method" => "add", "name" => "app.success.add"],
+
+    /** API  **/
+    ["path" => "/api/sauces/:id/like", "controller" => ApiController::class, "http_method" => "POST", "controller_method" => "like", "name" => "api.sauce.like", 'parameters' => [$user_l_d_sauceRepository]],
+    ["path" => "/api/sauces/:id/dislike", "controller" => ApiController::class, "http_method" => "POST", "controller_method" => "dislike", "name" => "api.sauce.dislike", 'parameters' => [$user_l_d_sauceRepository]],
 
     /** Assets **/
     ["path" => "/public", "controller" => AssetsController::class, "http_method" => "GET", "controller_method" => "assets", "name" => "app.assets"],

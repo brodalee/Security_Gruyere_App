@@ -24,4 +24,66 @@ class LikeDislikeSauceRepository extends AbstractRepository
         $obj->dislikes = 0;
         return $obj;
     }
+
+    public function hasAlreadyLikedSauce($sauceId, $userId)
+    {
+        return count($this->customQuery("
+            SELECT id 
+            FROM User_Like_Dislike_Sauce
+            WHERE 
+                  kind = 'LIKE' 
+                  AND
+                  sauceId = $sauceId
+                  AND
+                  userId = $userId")) === 1;
+    }
+
+    public function addLikeToSauce(int $sauceId, int $userId)
+    {
+        return $this->createFrom([
+            'sauceId' => $sauceId,
+            'userId' => $userId,
+            'kind' => 'LIKE'
+        ]);
+    }
+
+    public function deleteLikeToSauce(int $sauceId, int $userId)
+    {
+        return $this->deleteByFields([
+            'sauceId' => $sauceId,
+            'userId' => $userId,
+            'kind' => 'LIKE'
+        ]);
+    }
+
+    public function hasAlreadyDislikedSauce($sauceId, $userId)
+    {
+        return count($this->customQuery("
+            SELECT id 
+            FROM User_Like_Dislike_Sauce
+            WHERE 
+                  kind = 'DISLIKE' 
+                  AND
+                  sauceId = $sauceId
+                  AND
+                  userId = $userId")) === 1;
+    }
+
+    public function addDislikeSauce(int $sauceId, int $userId)
+    {
+        return $this->createFrom([
+            'sauceId' => $sauceId,
+            'userId' => $userId,
+            'kind' => 'DISLIKE'
+        ]);
+    }
+
+    public function deleteDislikeSauce(int $sauceId, int $userId)
+    {
+        return $this->deleteByFields([
+            'sauceId' => $sauceId,
+            'userId' => $userId,
+            'kind' => 'DISLIKE'
+        ]);
+    }
 }
