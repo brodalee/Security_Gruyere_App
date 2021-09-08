@@ -35,7 +35,7 @@ class AntiBrutForceSession extends AbstractBrutForce
      *
      * @return $this
      */
-    public function incrementTry(): self
+    public function incrementTry(): BrutForceInterface
     {
         $this->initAddrSession();
         $_SESSION[$this->getClientAddr()]["tries"][] = time();
@@ -47,7 +47,7 @@ class AntiBrutForceSession extends AbstractBrutForce
      *
      * @return $this
      */
-    public function reset(): self
+    public function reset(): BrutForceInterface
     {
         $_SESSION[$this->getClientAddr()] = ["tries" => [], "count" => 1];
         return $this;
@@ -68,7 +68,7 @@ class AntiBrutForceSession extends AbstractBrutForce
      *
      * @return $this
      */
-    protected function resetTries(): self
+    protected function resetTries(): AbstractBrutForce
     {
         $_SESSION[$this->getClientAddr()]["tries"] = [];
         return $this;
@@ -79,7 +79,7 @@ class AntiBrutForceSession extends AbstractBrutForce
      *
      * @return $this
      */
-    protected function incrementCount(): self
+    protected function incrementCount(): AbstractBrutForce
     {
         $_SESSION[$this->getClientAddr()]['count'] = $_SESSION[$this->getClientAddr()]['count'] + 1;
         return $this;

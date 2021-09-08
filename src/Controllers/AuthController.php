@@ -5,13 +5,24 @@ namespace App\Controllers;
 use App\Model\Repository\UserRepository;
 use App\Model\UserSession;
 use Core\AbstractController;
+use Core\Modules\Security\BrutForce\AntiBrutForceSession;
 
 class AuthController extends AbstractController
 {
 
     public function login(UserRepository $userRepository)
     {
-        // TODO : Faille "FORCE_BRUTE".
+        $afb = new AntiBrutForceSession();
+        if ($afb->isBlocked()) {
+            if ((new UserSession())->addSuccess(UserSession::$SUCCESSES['FORCE_BRUTE'])) {
+                $this->addFlash(
+                    'FORCE_BRUTE',
+                    "Vous forcez la porte comme une brute ! : " . UserSession::$SUCCESSES['FORCE_BRUTE']['Description']);
+            }
+            //return $this->redirectTo('app.login.get');
+        }
+        $afb->incrementTry();
+
         if (isset($_POST['pseudo']) && isset($_POST['password'])) {
 
             if ($_POST['pseudo'] == 'admin' && $_POST['password'] == 'admin') {
@@ -20,6 +31,7 @@ class AuthController extends AbstractController
                 $user->role = "USER";
                 $user->pseudo = "Vevo Admin";
                 $userSession = new UserSession($user);
+                $afb->reset();
                 if ($userSession->addSuccess(UserSession::$SUCCESSES['LOGS_IN_FILE'])) {
                     $this->addFlash(
                         'LOG_IN_FILE_FOUND',
@@ -44,6 +56,7 @@ class AuthController extends AbstractController
                         $this->addFlash('SQL_INJECTION_FOUND', "Vous avez trouvé la faille d'injection SQL !");
                     }
                 }
+                $afb->reset();
                 return $this->redirectTo('app.sauce.getAll');
             }
             $this->addFlash('failure', 'Mot de passe incorrect');

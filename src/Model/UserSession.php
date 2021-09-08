@@ -34,8 +34,8 @@ class UserSession implements UserInterface
             'Description'   => 'Vous avez executé du code depuis un fichier existant, importé, ou non sur le site.'
         ],
         "FORCE_BRUTE"       =>  [
-            'Name'          => 'Attaque Force Brute',
-            'Description'   => 'Vous avez forcé l\'entré jusqu\'a trouver la clé.'
+            'Name'          => 'Force Brute',
+            'Description'   => 'Vous tenter de trop forcer la porte sans être bloqué.'
         ],
         "LOGS_IN_FILE"      => [
             'Name'          => 'La Youtube / Vevo',
@@ -65,8 +65,9 @@ class UserSession implements UserInterface
                 'SELECT COUNT(Success.name) as N FROM `Success` WHERE name = "'.$successName['Name'].'"',
                 [], false
             );
+
             $successRepository->customQuery(
-              "INSERT INTO `Success` (`id`, `name`, `description`) VALUES(NULL, '{$successName['Name']}', '{$successName['Description']}')"
+              "INSERT INTO `Success` (`name`, `description`) VALUES('{$successName['Name']}', '{$successName['Description']}')"
             );
             return ((int) $wasAlreadyFound->N) === 0;
         }

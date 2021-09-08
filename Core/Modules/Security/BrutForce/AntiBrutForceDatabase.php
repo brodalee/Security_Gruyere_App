@@ -16,7 +16,7 @@ class AntiBrutForceDatabase extends AbstractBrutForce
      *
      * @return $this
      */
-    protected function resetTries(): AbstractBrutForce
+    protected function resetTries(): BrutForceInterface
     {
         $entity = $this->_db->getRepository()->findOneBy('user_addr', $this->getClientAddr());
         if ($entity == false) return $this;
@@ -31,7 +31,7 @@ class AntiBrutForceDatabase extends AbstractBrutForce
      *
      * @return $this
      */
-    protected function incrementCount(): AbstractBrutForce
+    protected function incrementCount(): BrutForceInterface
     {
         $entity = $this->_db->getRepository()->findOneBy('user_addr', $this->getClientAddr());
         if ($entity == false) return $this;
