@@ -66,6 +66,10 @@ class SauceController extends AbstractController
 
     public function vulnerabilityHistory()
     {
-        echo $this->render('vulnerabilityHistory.html');
+        echo $this->render('vulnerabilityHistory.html',
+            ['vh' => array_map(function($el) {
+                return (object) $el;
+            }, UserSession::$SUCCESSES)]
+        );
     }
 }

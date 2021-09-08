@@ -18,11 +18,11 @@ class UserSession implements UserInterface
             'Description'   => "Vous avez réussi à vous connecter sans mot de passe."
         ],
         "ROUTE_ACCESS"      =>  [
-            'Name'          =>  'Accès non autorisé',
+            'Name'          =>  'Accès à une/des route(s) non autorisé',
             'Description'   =>  'Vous avez accédé à une route sans être connecté.'
         ],
         "UPLOAD"            =>  [
-            'Name'          => 'Envois de script',
+            'Name'          => 'Envois de script ( Upload )',
             'Description'   => 'Vous avez injecté un script executable via un envois de fichier.'
         ],
         "XSS"               => [
