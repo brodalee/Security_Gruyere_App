@@ -52,11 +52,6 @@ class SauceController extends AbstractController
         $this->redirectTo('app.sauce.getAll');
     }
 
-    public function delete(DefaultRepository $sauceRepository)
-    {
-        // POST['id']
-    }
-
     public function getOneById(string $id, DefaultRepository $sauceRepository)
     {
         $sauce = $sauceRepository->findAllBy('id', $id)[0];
@@ -67,5 +62,10 @@ class SauceController extends AbstractController
             'dislikes' => $likesDislikes->dislikes,
             'userId' => $this->getUser()->getId()
         ]);
+    }
+
+    public function vulnerabilityHistory()
+    {
+        echo $this->render('vulnerabilityHistory.html');
     }
 }

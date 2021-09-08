@@ -35,6 +35,7 @@ return [
 
     /** Sauces  **/
     ["path" => "/", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "getAll", "name" => "app.sauce.getAll", 'parameters' => [$sauceRepository]],
+    ["path" => "/vulnerabilityHistory", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "vulnerabilityHistory", "name" => "app.sauce.vulnerability.history"],
     ["path" => "/sauces/create", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "create", "name" => "app.sauce.create.get"],
     ["path" => "/sauces/create", "controller" => SauceController::class, "http_method" => "POST", "controller_method" => "createPOST", "name" => "app.sauce.create.post", 'parameters' => [$sauceRepository]],
     ["path" => "/sauces/:id", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "getOneById", "name" => "app.sauce.getOne", 'parameters' => [$sauceRepository]],

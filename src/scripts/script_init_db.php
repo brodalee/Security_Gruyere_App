@@ -1,7 +1,7 @@
 #!bin/sh
 <?php
 
-require_once './vendor/autoload.php';
+require_once '../../vendor/autoload.php';
 
 use App\Model\Entity\Sauce;
 use App\Model\Entity\Success;
@@ -112,5 +112,7 @@ $success
         COMMIT;
     ");
 echo "Done\n";
+
+file_put_contents('./Config/init.txt', 'OK');
 
 echo "Script execution done.\n";

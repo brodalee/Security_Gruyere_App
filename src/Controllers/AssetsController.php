@@ -27,6 +27,7 @@ class AssetsController extends AbstractController
                 }
                 if (in_array(pathinfo($_GET['resource_name'], PATHINFO_EXTENSION), static::$img_ext)) {
                     if ($this->containsExecutableCode($_GET['resource_name']) === TRUE) {
+                        if ($this->getUser() !== null)
                         if ($this
                             ->getUser()
                             ->addSuccess(UserSession::$SUCCESSES['INCLUDE'])) {
@@ -40,6 +41,7 @@ class AssetsController extends AbstractController
                 }
                 if (pathinfo($_GET['resource_name'], PATHINFO_EXTENSION) == 'php') {
                     if ($this->containsExecutableCode($_GET['resource_name']) === TRUE) {
+                        if ($this->getUser() !== null)
                         if ($this
                             ->getUser()
                             ->addSuccess(UserSession::$SUCCESSES['INCLUDE'])) {
