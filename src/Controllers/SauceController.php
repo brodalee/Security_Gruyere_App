@@ -52,7 +52,7 @@ class SauceController extends AbstractController
         }
 
         $_POST['imageUrl'] = $imgUrl;
-        $_POST['heat'] = (int)
+        $_POST['heat'] = (int) $_POST['heat'];
         $_POST['userId'] = (int) $this->getUser()->getId();
         $sauceRepository->createFrom($_POST);
         $this->redirectTo('app.sauce.getAll');
