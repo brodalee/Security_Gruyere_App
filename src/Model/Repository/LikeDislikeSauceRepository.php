@@ -11,8 +11,8 @@ class LikeDislikeSauceRepository extends AbstractRepository
     {
         return $this->customQuery("
             SELECT 
-	            (SELECT COUNT(*) FROM User_Like_Dislike_Sauce WHERE kind = 'LIKE') as likes,
-                (SELECT COUNT(*) FROM User_Like_Dislike_Sauce WHERE kind = 'DISLIKE') as dislikes
+	            (SELECT COUNT(*) FROM User_Like_Dislike_Sauce WHERE kind = 'LIKE' AND sauceId = $sauceId) as likes,
+                (SELECT COUNT(*) FROM User_Like_Dislike_Sauce WHERE kind = 'DISLIKE' AND sauceId = $sauceId) as dislikes
             FROM `{$this->tableName}`
             WHERE sauceId = $sauceId
         ")[0] ?? $this->defaultCountValue();

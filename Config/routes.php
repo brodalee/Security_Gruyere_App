@@ -18,12 +18,14 @@ use App\Controllers\AuthController;
 use App\Controllers\SauceController;
 use App\Controllers\SuccessController;
 use App\Model\Entity\Sauce;
+use App\Model\Entity\Success;
 use App\Model\Entity\User;
 use App\Model\Entity\UserLikeDislikeSauce;
 
 $userRepository = (new User())->getRepository();
 $sauceRepository = (new Sauce())->getRepository();
 $user_l_d_sauceRepository = (new UserLikeDislikeSauce())->getRepository();
+$successRepository = (new Success())->getRepository();
 
 return [
     /** Auth **/
@@ -35,7 +37,7 @@ return [
 
     /** Sauces  **/
     ["path" => "/", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "getAll", "name" => "app.sauce.getAll", 'parameters' => [$sauceRepository]],
-    ["path" => "/vulnerabilityHistory", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "vulnerabilityHistory", "name" => "app.sauce.vulnerability.history"],
+    ["path" => "/vulnerabilityHistory", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "vulnerabilityHistory", "name" => "app.sauce.vulnerability.history", "parameters" => [$successRepository]],
     ["path" => "/sauces/create", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "create", "name" => "app.sauce.create.get"],
     ["path" => "/sauces/create", "controller" => SauceController::class, "http_method" => "POST", "controller_method" => "createPOST", "name" => "app.sauce.create.post", 'parameters' => [$sauceRepository]],
     ["path" => "/sauces/:id", "controller" => SauceController::class, "http_method" => "GET", "controller_method" => "getOneById", "name" => "app.sauce.getOne", 'parameters' => [$sauceRepository]],
