@@ -68,7 +68,10 @@ class AuthController extends AbstractController
 
     public function loginGet()
     {
-        echo $this->render('connexion.html');
+        echo $this->render('connexion.html', [
+            'pseudo' => 'admin',
+            'password' => 'admin'
+        ]);
     }
 
     public function signupGet()
@@ -81,6 +84,7 @@ class AuthController extends AbstractController
         if (isset($_POST['pseudo']) && isset($_POST['password'])) {
 
             $userRepository->create($_POST['pseudo'], $_POST['password']);
+            $this->addFlash('account_created', 'Votre compte a bien été crée.');
             return $this->redirectTo('app.login.get');
         }
         $this->addFlash('failure', 'Une erreur est survenue.');
