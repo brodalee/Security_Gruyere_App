@@ -69,6 +69,9 @@ class UserSession implements UserInterface
             $successRepository->customQuery(
               "INSERT INTO `Success` (`name`, `description`) VALUES('{$successName['Name']}', '{$successName['Description']}')"
             );
+
+            if (!$wasAlreadyFound) return false;
+
             return ((int) $wasAlreadyFound->N) === 0;
         }
         return false;
