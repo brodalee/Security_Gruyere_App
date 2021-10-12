@@ -26,10 +26,17 @@ class AuthController extends AbstractController
         if (isset($_POST['pseudo']) && isset($_POST['password'])) {
 
             if ($_POST['pseudo'] == 'admin' && $_POST['password'] == 'admin') {
-                $user = new \stdClass();
-                $user->id = 0;
-                $user->role = "USER";
-                $user->pseudo = "Vevo Admin";
+                $user = $userRepository->findOneWhere([
+                    'pseudo = "admin"',
+                    'password = "admin"'
+                ]);
+                if (!$user) {
+                    $userRepository->create("admin", 'admin');
+                }
+                $user = $userRepository->findOneWhere([
+                    'pseudo = "admin"',
+                    'password = "admin"'
+                ]);
                 $userSession = new UserSession($user);
                 $afb->reset();
                 if ($userSession->addSuccess(UserSession::$SUCCESSES['LOGS_IN_FILE'])) {

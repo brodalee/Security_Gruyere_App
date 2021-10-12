@@ -43,9 +43,15 @@ class SauceController extends AbstractController
 
     public function createPOST(DefaultRepository $sauceRepository)
     {
-        $file = incoming_files()[0];
-        move_uploaded_file($file['tmp_name'], SITE_BASE_PATH.'public/img/'.$file['name']);
-        $_POST['imageUrl'] = $file['name'];
+        $files = incoming_files();
+        $imgUrl = '';
+        if (count($files) === 1) {
+            $file = $files[0];
+            move_uploaded_file($file['tmp_name'], SITE_BASE_PATH.'public/img/'.$file['name']);
+            $imgUrl = $file['name'];
+        }
+
+        $_POST['imageUrl'] = $imgUrl;
         $_POST['heat'] = (int)
         $_POST['userId'] = (int) $this->getUser()->getId();
         $sauceRepository->createFrom($_POST);
