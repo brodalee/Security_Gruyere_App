@@ -43,7 +43,8 @@ foreach ($routes as $route) {
         $route['path'], array(
             '_controller'   => $route['controller'] . "::" . $route['controller_method'],
             'methods'       => $route['http_method'],
-            'parameters'    => isset($route['parameters']) ? $route['parameters'] : []
+            'parameters'    => isset($route['parameters']) ? $route['parameters'] : [],
+            'c_parameters'  => isset($route['c_parameters']) ? $route['c_parameters'] : []
         )
     ));
 }

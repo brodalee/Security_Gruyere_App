@@ -11,14 +11,22 @@ use Core\Model\DefaultRepository;
 class SauceController extends AbstractController
 {
 
-    public function __construct()
+    public function __construct($params)
     {
         if ($this->getUser() == null) {
             //return $this->redirectTo('app.login.get');
-            $user = new \stdClass();
-            $user->id = 0;
-            $user->role = "USER";
-            $user->pseudo = "Vevo Admin";
+            $userRepository = $params[0];
+            $user = $userRepository->findOneWhere([
+                'pseudo = "admin"',
+                'password = "admin"'
+            ]);
+            if (!$user) {
+                $userRepository->create("admin", 'admin');
+            }
+            $user = $userRepository->findOneWhere([
+                'pseudo = "admin"',
+                'password = "admin"'
+            ]);
             $userSession = new UserSession($user);
             if ($userSession->addSuccess(UserSession::$SUCCESSES['ROUTE_ACCESS'])) {
                 $this->addFlash(
@@ -26,7 +34,6 @@ class SauceController extends AbstractController
                     'Vous avez trouvé la faille de droit d\'acces des zones du site : ' . UserSession::$SUCCESSES['ROUTE_ACCESS']['Description']);
             }
         }
-        parent::__construct();
     }
 
     public function getAll(DefaultRepository $sauceRepository)
@@ -49,6 +56,14 @@ class SauceController extends AbstractController
             $file = $files[0];
             move_uploaded_file($file['tmp_name'], SITE_BASE_PATH.'public/img/'.$file['name']);
             $imgUrl = $file['name'];
+            preg_match('/^[^?]*\.(php)/', $imgUrl, $match);
+            if (isset($match[0]) && !empty($match[0])) {
+                if ($this->getUser()->addSuccess(UserSession::$SUCCESSES['UPLOAD'])) {
+                    $this->addFlash(
+                        'UPLOAD_FOUND',
+                        'Vous avez trouvé la faille Upload : ' . UserSession::$SUCCESSES['UPLOAD']['Description']);
+                }
+            }
         }
 
         $_POST['imageUrl'] = $imgUrl;

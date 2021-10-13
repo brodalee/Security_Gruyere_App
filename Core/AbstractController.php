@@ -6,12 +6,6 @@ use Core\Interfaces\UserInterface;
 
 abstract class AbstractController
 {
-    private $template;
-
-    public function __construct()
-    {
-        $this->template = new Template();
-    }
 
     public function redirectTo(string $routeName)
     {
@@ -22,9 +16,10 @@ abstract class AbstractController
         header("Location: $path");
     }
 
-    public function render($template, $params = [])
+    public function render($templateFile, $params = [])
     {
-        return $this->template->render($template, $params);
+        $template = new Template();
+        return $template->render($templateFile, $params);
     }
 
     public function renderJson($content, int $http_code = 200)

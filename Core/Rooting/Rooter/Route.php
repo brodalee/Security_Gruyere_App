@@ -18,6 +18,7 @@ class Route
     private $parametersByName;
     private $action;
     private $config;
+    private $constructorParameters;
 
     public function __construct($resource, array $config)
     {
@@ -29,6 +30,13 @@ class Route
         $this->parameters = isset($config['parameters']) ? $config['parameters'] : array();
         $action = explode('::', $this->config['_controller']);
         $this->action = isset($action[1]) ? $action[1] : null;
+        $this->constructorParameters = isset($config['c_parameters']) ? $config['c_parameters'] : array();
+    }
+
+    public function setConstructorParameters(array $parameters)
+    {
+        $this->constructorParameters = $parameters;
+        return $this;
     }
 
     public function getUrl()
@@ -110,7 +118,7 @@ class Route
     public function dispatch()
     {
         $action = explode('::', $this->config['_controller']);
-        $instance = new $action[0];
+        $instance = new $action[0]($this->constructorParameters);
 
         if ($this->parametersByName) {
             $this->parameters = array($this->parameters);
