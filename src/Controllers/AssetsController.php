@@ -48,9 +48,15 @@ class AssetsController extends AbstractController
                             $this->addFlash('INCLUDE_FOUND', 'Vous avez trouvé la faille Include : ' . UserSession::$SUCCESSES['INCLUDE']['Description']);
                         }
                     }
-                    include('./public/img/' . $_GET['resource_name']);
+                    return include('./public/img/' . $_GET['resource_name']);
                 }
             }
+            if ($this
+                ->getUser()
+                ->addSuccess(UserSession::$SUCCESSES['FULL_PATH_DISCLOSURE'])) {
+                $this->addFlash('FULL_PATH_DISCLOSURE_FOUND', 'Vous avez trouvé la faille full path disclosure : ' . UserSession::$SUCCESSES['FULL_PATH_DISCLOSURE']['Description']);
+            }
+            throw new \Exception("File " . $_GET['resource_name'] . ' not found');
         }
         http_response_code(404);
     }

@@ -43,7 +43,7 @@ class UserSession implements UserInterface
         ],
         "FULL_PATH_DISCLOSURE"  => [
             'Name'          => 'Full Path Disclosure',
-            'Description'   => 'Vous avez accès au chemin d\'un/plusieurs script(s) sur le server.'
+            'Description'   => "Vous avez accès au chemin d\'un/plusieurs script(s) sur le server."
         ]
     ];
 
@@ -69,6 +69,8 @@ class UserSession implements UserInterface
             $successRepository->customQuery(
               "INSERT INTO `Success` (`name`, `description`) VALUES('{$successName['Name']}', '{$successName['Description']}')"
             );
+
+            var_dump("INSERT INTO `Success` (`name`, `description`) VALUES('{$successName['Name']}', '{$successName['Description']}')");
 
             if (!$wasAlreadyFound) return false;
 
