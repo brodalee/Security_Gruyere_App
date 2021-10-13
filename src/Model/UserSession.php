@@ -70,8 +70,6 @@ class UserSession implements UserInterface
               "INSERT INTO `Success` (`name`, `description`) VALUES('{$successName['Name']}', '{$successName['Description']}')"
             );
 
-            var_dump("INSERT INTO `Success` (`name`, `description`) VALUES('{$successName['Name']}', '{$successName['Description']}')");
-
             if (!$wasAlreadyFound) return false;
 
             return ((int) $wasAlreadyFound->N) === 0;
