@@ -23,7 +23,7 @@ class UserSession implements UserInterface
         ],
         "UPLOAD"            =>  [
             'Name'          => 'Envois de script ( Upload )',
-            'Description'   => 'Vous avez injecté un script executable via un envois de fichier.'
+            'Description'   => 'Vous avez injecté un script executable via un envoi de fichier.'
         ],
         "XSS"               => [
             'Name'          => 'XSS',
@@ -43,7 +43,7 @@ class UserSession implements UserInterface
         ],
         "FULL_PATH_DISCLOSURE"  => [
             'Name'          => 'Full Path Disclosure',
-            'Description'   => "Vous avez accès au chemin d\'un/plusieurs script(s) sur le server."
+            'Description'   => "Vous avez accès au chemin d\'un/plusieurs script(s) sur le serveur."
         ]
     ];
 
