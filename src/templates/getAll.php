@@ -44,8 +44,6 @@
 
 <body>
 
-{{ use::flash_file.html }}
-
 {{ use::menu.html }}
 
 <div _ngcontent-c0="" class="container" style="margin-top: 5%">
@@ -57,6 +55,8 @@
         </div>
     </div>
 </div>
+
+{{ use::flash_file.html }}
 
 <div>
     <div id="first_visit" class="modal" role="dialog">
@@ -70,7 +70,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Qu'est-ce que vous allez faire ?</p>
-                    <p>Il y a un total de X failles web sur notre application, trouvez-les, exploitez-les et corrigez-les avant qu'un petit malin fasse des dégats.</p>
+                    <p>Il y a un total de {{ count }} failles web sur notre application, trouvez-les, exploitez-les et corrigez-les avant qu'un petit malin fasse des dégats.</p>
                 </div>
             </div>
         </div>
@@ -86,4 +86,12 @@
     }
 </script>
 
+<script>
+    (() => {
+        for (let c of document.getElementById("flashes").children) {
+            if (c.innerHTML.trim() == "" || c.innerHTML.trim() == " ") c.remove()
+        }
+    })()
+
+</script>
 </body>

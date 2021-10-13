@@ -39,7 +39,8 @@ class SauceController extends AbstractController
     public function getAll(DefaultRepository $sauceRepository)
     {
         echo $this->render('getAll.php', [
-            'sauces' => $sauceRepository->findAll()
+            'sauces' => $sauceRepository->findAll(),
+            'count' => count(UserSession::$SUCCESSES)
         ]);
     }
 

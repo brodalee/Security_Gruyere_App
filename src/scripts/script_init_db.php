@@ -113,6 +113,14 @@ $success
     ");
 echo "Done\n";
 
+echo "Adding samples to Database ... \n";
+
+$user->getRepository()->create('pseudo', 'password');
+$sauce->getRepository()->customQuery("INSERT INTO `Sauce` (`id`, `name`, `manufacturer`, `description`, `mainPepper`, `imageUrl`, `heat`, `userId`) VALUES
+(1, 'Tabasco', 'Edmund McIlhenny', 'Sauce Hot', 'Piment rouge', 'tabasco.jpg', '8', 1);");
+$user_l_d_sauce->getRepository()->customQuery("INSERT INTO `User_Like_Dislike_Sauce` (`id`, `userId`, `kind`, `sauceId`) VALUES
+(1, 1, 'LIKE', 1);");
+
 file_put_contents('./Config/init.txt', 'OK');
 
 echo "Script execution done.\n";
