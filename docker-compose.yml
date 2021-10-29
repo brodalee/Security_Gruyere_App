@@ -1,29 +1,34 @@
 version: '3.9'
 services:
-  web_apache:
+  web:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: "Gruyere_app"
     environment:
+      - DB_TYPE=MYSQL
       - DB_NAME=gruyere_app
       - DB_USER=root
       - DB_PASS=root
-      - DB_HOST=127.0.0.1:3306
+      - DB_HOST=db:3306
     ports:
       - 5500:80
+    expose:
+      - 80
     depends_on:
+      - db
+    links:
       - db
     volumes:
       - ./:/usr/src/gruyere_app
-    command: bash -c "php -S 0.0.0.0:80 index.php"
+    command: bash -c "php ./src/scripts/script_init_db.php && php -S 0.0.0.0:80 index.php"
 
   db:
     container_name: "Gruyere_App_Database"
-    image: mysql:8.0
-    restart: unless-stopped
+    image: mariadb:10.2
+    restart: on-failure
     environment:
-      MYSQL_USER: 'gruyere_app_user'
+      MYSQL_USER: 'root'
       MYSQL_DATABASE: 'gruyere_app'
       MYSQL_PASSWORD: 'root'
       MYSQL_ROOT_PASSWORD: 'root'
@@ -32,13 +37,15 @@ services:
     expose:
       - 3306
     volumes:
-      - ./Config/Docker/mysql:/var/lib/mysql
+      - ./Config/Docker/mariadb:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
-    restart: unless-stopped
+    restart: on-failure
     links:
       - db
     ports:
       - 7000:80
+    expose:
+      - 80

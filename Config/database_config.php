@@ -8,7 +8,7 @@ use Core\Model\DBFactory;
  *      ["user_name" => "", "password" => "", "db_name" => "", "host" => ""]
  */
 return [
-    "type" => DBFactory::$MYSQL,
+    "type" => getenv('DB_TYPE'),
     "user_name" => getenv("DB_USER"),
     "password" => getenv("DB_PASS"),
     "db_name" => getenv("DB_NAME"),
