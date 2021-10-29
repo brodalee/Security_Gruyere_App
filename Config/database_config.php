@@ -8,9 +8,9 @@ use Core\Model\DBFactory;
  *      ["user_name" => "", "password" => "", "db_name" => "", "host" => ""]
  */
 return [
-    "type" => DBFactory::$MYSQL,
-    "user_name" => "root",
-    "password" => "",
-    "db_name" => "gruyere_app",
-    "host" => "localhost:3306"
+    "type" => getenv('DB_TYPE'),
+    "user_name" => getenv("DB_USER"),
+    "password" => getenv("DB_PASS"),
+    "db_name" => getenv("DB_NAME"),
+    "host" => getenv("DB_HOST")
 ];
